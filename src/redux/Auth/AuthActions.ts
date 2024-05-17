@@ -38,7 +38,7 @@ export const loginUser = createAsyncThunk<
 
 export const checkLoggedUser = createAsyncThunk<boolean, void, { state: RootState }>(
   'auth/checkLoggedIn',
-  async (_, { getState }) => {
+  async () => {
     try {
       return await checkLoggedIn(); // Call the checkLoggedIn utility function
     } catch (error) {
