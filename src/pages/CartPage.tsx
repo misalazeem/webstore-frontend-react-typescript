@@ -37,7 +37,7 @@ const CartPage = () => {
             {quantity &&
               cartItems.map((cartItem) => (
                 <div
-                  className="flex flex-row mb-8 p-8 justify-between gap-8 w-[50%] bg-base-100 shadow-xl"
+                  className="flex flex-col mb-8 p-8 justify-between gap-8 w-[100%] bg-base-100 shadow-xl lg:flex-row lg:w-[50%] xl:flex-row 2xl:flex-row"
                   key={cartItem._id}
                 >
                   <img src={cartItem.image} className="w-[200px]" alt={cartItem.name} />
@@ -70,7 +70,7 @@ const CartPage = () => {
                   </div>
                 </div>
               ))}
-            <div className="flex flex-row w-[50%] justify-between items-center ">
+            <div className="flex flex-row w-[100%] justify-between items-center lg:w-[50%] xl:w-[50%] 2xl:w-[50%] ">
               <p>
                 Total Amount: <b>${totalAmount}</b>
               </p>
