@@ -53,7 +53,7 @@ const Register = () => {
     }
 
     if (registerForm.username.length < 9 || registerForm.password.length < 5) {
-      setErrorMessage('Username, password and Name must have a minimum of 5 characters.');
+      setErrorMessage('Username must have 8 characters, password must have a minimum of 9 characters.');
       return false;
     }
 
