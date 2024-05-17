@@ -17,7 +17,7 @@ type ProductsListProps = {
 const ProductsList: React.FC<ProductsListProps> = ({ products }) => {
   const dispatch: AppDispatch = useDispatch();
   return (
-    <div className="flex flex-wrap w-full gap-4 px-12 items-center md:gap-16 px-16 lg:gap-16 px-24">
+    <div className="flex flex-wrap w-full gap-4 px-12 items-center md:gap-16 md:px-16 lg:gap-16 lg:px-24">
       {products?.map((product) => (
         <div key={product._id} className="card w-[100%] items-center bg-base-100 shadow-xl md:w-[42%] lg:w-[45%] xl:[35%] 2xl:[33%]">
           <figure>
