@@ -1,11 +1,11 @@
-import { RegisterFormProps } from "../../pages/Auth/Register";
+import { RegisterFormProps } from '../../pages/Auth/Register';
 
 export interface RegistratioResponse {
   data: {
-    _id: string,
-    username: string,
-    email: string,
-  }
+    _id: string;
+    username: string;
+    email: string;
+  };
 }
 
 export interface RegisterForm {
@@ -14,20 +14,20 @@ export interface RegisterForm {
 
 export interface LoginFormRespose {
   data: {
-    access_token: string,
+    access_token: string;
     user: {
-      _id: string,
-      username: string,
-      email: string,
-    }
-  }
+      _id: string;
+      username: string;
+      email: string;
+    };
+  };
 }
 
 export interface LoginFormProps {
-  email: string,
-  password: string,
+  email: string;
+  password: string;
 }
 
 export interface LoginForm {
-  formData: LoginFormProps,
+  formData: LoginFormProps;
 }

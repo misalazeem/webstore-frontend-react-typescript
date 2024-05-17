@@ -1,9 +1,9 @@
 export interface Product {
-  _id: string,
-  name: string,
-  description: string,
-  image: string,
-  price: number
+  _id: string;
+  name: string;
+  description: string;
+  image: string;
+  price: number;
 }
 
 export interface ProductsResponse {
@@ -11,10 +11,10 @@ export interface ProductsResponse {
 }
 
 export interface CartItem {
-  _id: string,
-  name: string,
-  description: string,
-  image: string,
-  price: number
+  _id: string;
+  name: string;
+  description: string;
+  image: string;
+  price: number;
   quantity: number;
-};
+}

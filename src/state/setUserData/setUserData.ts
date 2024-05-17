@@ -1,12 +1,12 @@
-import Cookie from "js-cookie";
+import Cookie from 'js-cookie';
 
 export interface DataType {
-  access_token: string,
+  access_token: string;
   user: {
-    id: string,
-    username: string,
-    email: string,
-  }
+    id: string;
+    username: string;
+    email: string;
+  };
 }
 
 export const setUserState = (data: DataType) => {
@@ -14,4 +14,4 @@ export const setUserState = (data: DataType) => {
   Cookie.set('username', data.user.username, { expires: 1 });
   Cookie.set('id', data.user.id, { expires: 1 });
   Cookie.set('email', data.user.email, { expires: 1 });
-}
+};

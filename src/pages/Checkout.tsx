@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { AppDispatch, RootState } from "../redux/store";
-import { clearCart } from "../redux/Cart/CartActions";
+import { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { AppDispatch, RootState } from '../redux/store';
+import { clearCart } from '../redux/Cart/CartActions';
 
 interface FormData {
   address: string;
@@ -15,27 +15,27 @@ interface FormData {
 const Checkout = () => {
   const cartItems = useSelector((state: RootState) => state.cart.items);
   const navigate = useNavigate();
-  const dispatch:AppDispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const [formData, setFormData] = useState<FormData>({
-    address: "",
-    phoneNumber: "",
-    name: "",
-    email: "",
-    paymentMethod: "Cash On Delivery",
+    address: '',
+    phoneNumber: '',
+    name: '',
+    email: '',
+    paymentMethod: 'Cash On Delivery'
   });
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const [errors, setErrors] = useState({
-    address: "",
-    phoneNumber: "",
-    name: "",
-    email: "",
+    address: '',
+    phoneNumber: '',
+    name: '',
+    email: ''
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
-    if (name === "phoneNumber") {
+    if (name === 'phoneNumber') {
       if (!/^\d*$/.test(value)) {
         return;
       }
@@ -43,7 +43,7 @@ const Checkout = () => {
 
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: value
     });
   };
 
@@ -58,9 +58,9 @@ const Checkout = () => {
   };
 
   useEffect(() => {
-    if(cartItems.length < 1) {
-        navigate('/');
-      }
+    if (cartItems.length < 1) {
+      navigate('/');
+    }
   }, [cartItems]);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -68,19 +68,19 @@ const Checkout = () => {
     const newErrors: any = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
+      newErrors.name = 'Name is required';
     }
 
     if (!formData.email.trim() || !validateEmail(formData.email)) {
-      newErrors.email = "Valid email is required";
+      newErrors.email = 'Valid email is required';
     }
 
     if (!formData.address.trim()) {
-      newErrors.address = "Address is required";
+      newErrors.address = 'Address is required';
     }
 
     if (!formData.phoneNumber.trim() || !validatePhoneNumber(formData.phoneNumber)) {
-      newErrors.phoneNumber = "Valid phone number is required";
+      newErrors.phoneNumber = 'Valid phone number is required';
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -88,18 +88,23 @@ const Checkout = () => {
       return;
     }
 
-    setSuccessMessage("Order Successfully placed!");
+    setSuccessMessage('Order Successfully placed!');
     setTimeout(() => {
       dispatch(clearCart());
       navigate('/');
-    }, 4000)
+    }, 4000);
   };
 
   return (
     <>
-      <div className="flex flex-row justify-center items-center py-4 text-3xl font-bold">CheckOut</div>
+      <div className="flex flex-row justify-center items-center py-4 text-3xl font-bold">
+        CheckOut
+      </div>
       <div className="w-full flex flex-row justify-center items-center">
-        <form className="flex flex-col p-16 items-center w-full md:w-[70%] lg:w-[70%]" onSubmit={handleSubmit}>
+        <form
+          className="flex flex-col p-16 items-center w-full md:w-[70%] lg:w-[70%]"
+          onSubmit={handleSubmit}
+        >
           <div className="flex flex-col w-full gap-8">
             <label className="input input-bordered max-w-[50%] flex items-center gap-2">
               <input
@@ -157,13 +162,15 @@ const Checkout = () => {
                 type="radio"
                 name="paymentMethod"
                 value="Cash On Delivery"
-                checked={formData.paymentMethod === "Cash On Delivery"}
+                checked={formData.paymentMethod === 'Cash On Delivery'}
                 onChange={handleChange}
                 className="radio radio-info"
               />
             </label>
           </div>
-          <button type="submit" className="btn btn-primary mt-8">Submit</button>
+          <button type="submit" className="btn btn-primary mt-8">
+            Submit
+          </button>
           {successMessage && <p className="text-green-500">{successMessage}</p>}
         </form>
       </div>

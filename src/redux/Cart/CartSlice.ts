@@ -5,7 +5,7 @@ import {
   increaseQuantity,
   decreaseQuantity,
   loadCartFromLocalStorage,
-  clearCart,
+  clearCart
 } from './CartActions';
 import { CartItem } from '../products/types';
 
@@ -18,7 +18,7 @@ export type CartState = {
 const initialState: CartState = {
   items: [],
   loading: false,
-  error: null,
+  error: null
 };
 
 const cartSlice = createSlice({
@@ -89,10 +89,13 @@ const cartSlice = createSlice({
       .addCase(loadCartFromLocalStorage.pending, (state) => {
         state.loading = true;
       })
-      .addCase(loadCartFromLocalStorage.fulfilled, (state, { payload }: PayloadAction<CartItem[]>) => {
-        state.loading = false;
-        state.items = payload;
-      })
+      .addCase(
+        loadCartFromLocalStorage.fulfilled,
+        (state, { payload }: PayloadAction<CartItem[]>) => {
+          state.loading = false;
+          state.items = payload;
+        }
+      )
       .addCase(loadCartFromLocalStorage.rejected, (state, { error }) => {
         state.loading = false;
         state.error = error.message || 'Failed to load cart from local storage';
@@ -101,7 +104,7 @@ const cartSlice = createSlice({
         state.items = [];
         localStorage.removeItem('cart');
       });
-  },
+  }
 });
 
 export default cartSlice.reducer;

@@ -10,12 +10,12 @@ export const checkLoggedIn = async () => {
   }
 
   const url = `${API_URL}/user/currentuser`;
-  
+
   try {
     const response = await axios.get(url, {
       headers: {
-        Authorization: `Bearer ${token}`,
-      },
+        Authorization: `Bearer ${token}`
+      }
     });
     if (!response.data) {
       return false;

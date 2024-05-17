@@ -5,4 +5,4 @@ export const useLogout = () => {
   Cookie.remove('id');
   Cookie.remove('username');
   Cookie.remove('email');
-}
+};
