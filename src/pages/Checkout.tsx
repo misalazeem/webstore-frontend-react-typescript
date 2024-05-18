@@ -106,7 +106,7 @@ const Checkout = () => {
           onSubmit={handleSubmit}
         >
           <div className="flex flex-col w-full gap-8">
-            <label className="input input-bordered max-w-[50%] flex items-center gap-2">
+            <label className="input input-bordered max-w-[100%] flex items-center gap-2 md:max-w-[50%] lg:max-w-[50%]">
               <input
                 type="text"
                 name="name"
@@ -118,7 +118,7 @@ const Checkout = () => {
             </label>
             {errors.name && <div className="text-red-500">{errors.name}</div>}
 
-            <label className="input input-bordered max-w-[50%] flex items-center gap-2">
+            <label className="input input-bordered max-w-[100%] flex items-center gap-2 md:max-w-[50%] lg:max-w-[50%]">
               <input
                 type="text"
                 name="email"
@@ -142,7 +142,7 @@ const Checkout = () => {
             </label>
             {errors.address && <div className="text-red-500">{errors.address}</div>}
 
-            <label className="input input-bordered max-w-[50%] flex items-center gap-2">
+            <label className="input input-bordered max-w-[100%] flex items-center gap-2 md:max-w-[50%] lg:max-w-[50%]">
               <input
                 type="text"
                 name="phoneNumber"
